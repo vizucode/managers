@@ -49,6 +49,9 @@
       <ul>
         <li><a href="#microservice-diagram">Microservice Diagram</a></li>
       </ul>
+      <ul>
+        <li><a href="#sequence-diagram">Sequence Diagram</a></li>
+      </ul>
     </li>
     <li>
         <a href="#developement">Developement</a>
@@ -102,6 +105,15 @@ This is API Documentation [API Documentation](https://documenter.getpostman.com/
 
 <div align="center">
     <img src="https://i.ibb.co/b3n2RgH/microservice-diagram-drawio.png" alt="Logo">
+</div>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Sequence Diagram
+
+<div align="center">
+    <img src="https://i.ibb.co/SdGQvn2/j-PEz-Ji-Cm4-CVt-FCMz-G5-Mr-Om-VKWOW5-YKg-K6-Jdsj-LWu-Tk-Ip-Y-3f-YLq-RAqh41qstq-Ny-X5t-P9-Zrlb-MLSmx.png" alt="Logo">
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
