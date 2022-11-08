@@ -46,6 +46,9 @@
       <ul>
         <li><a href="#api-documentation">API Documentation</a></li>
       </ul>
+      <ul>
+        <li><a href="#microservice-diagram">Microservice Diagram</a></li>
+      </ul>
     </li>
     <li>
         <a href="#developement">Developement</a>
@@ -91,6 +94,15 @@ This the tech stack that we used for developing Postgre service
 ### API Documentation
 
 This is API Documentation [API Documentation](https://documenter.getpostman.com/view/11975231/2s8YYPHL5c)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Microservice Diagram
+
+<div align="center">
+    <img src="https://i.ibb.co/b3n2RgH/microservice-diagram-drawio.png" alt="Logo">
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
