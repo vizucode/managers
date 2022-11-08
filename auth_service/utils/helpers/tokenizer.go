@@ -1,6 +1,11 @@
 package helpers
 
-import "time"
+import (
+	"authentication/config"
+	"time"
+
+	"github.com/golang-jwt/jwt/v4"
+)
 
 func CreateToken(id int, role string) (string, error) {
 	claims := jwt.MapClaims{}
