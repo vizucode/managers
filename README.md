@@ -25,10 +25,10 @@
 <div align="center">
     <img src="" alt="Logo">
 
-  <h3 align="center">Regisapp</h3>
+  <h3 align="center">Managers</h3>
 
   <p align="center">
-    Regisapp
+    Managers
   </p>
 </div>
 
@@ -43,9 +43,15 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
+      <ul>
+        <li><a href="#api-documentation">API Documentation</a></li>
+      </ul>
     </li>
     <li>
         <a href="#developement">Developement</a>
+        <ul>
+            <li><a href="#credential">Credential</a></li>
+        </ul>
         <ul>
             <li><a href="#required-stuff">Required Stuff</a></li>
         </ul>
@@ -72,13 +78,19 @@ This project is a test project
 
 ### Built With
 
-This the tech stack that we used for developing Devcode service
+This the tech stack that we used for developing Postgre service
 
 * [![Fiber][fiber]][fiber-url]
 * [![Gorm][gorm]][gorm-url]
 * [![Golang][golang]][golang-url]
 * [![GoValidator][govalidator]][go-validator]
-* [![Mysql][mysql]][mysql-url]
+* [![Postgre][postgre]][postgre-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### API Documentation
+
+This is API Documentation [API Documentation](https://documenter.getpostman.com/view/11975231/2s8YYPHL5c)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,6 +99,26 @@ This the tech stack that we used for developing Devcode service
 ## Developement
 
 <br />
+
+### Credential:
+
+- admin:
+
+email: admin@gmail.com
+<br/>
+password: adminpassword
+<br/>
+
+
+- user
+
+email: user@gmail.com
+<br/>
+password: userpassword
+<br/>
+<br/>
+
+
 
 ### Required Stuff:
 
@@ -137,5 +169,5 @@ Github: [https://github.com/vizucode](https://github.com/vizucode)
 [golang]: https://img.shields.io/badge/golang-gray?style=for-the-badge&logo=go&logoColor=00ADD8
 [golang-url]: https://go.dev/
 
-[mysql]: https://img.shields.io/badge/Mysql-gray?style=for-the-badge&logo=mysql&logoColor=00ADD8
-[mysql-url]: https://www.mysql.com/
+[postgre]: https://img.shields.io/badge/Postgre-gray?style=for-the-badge&logo=postgresql&logoColor=00ADD8
+[postgre-url]: https://www.postgresql.org/
