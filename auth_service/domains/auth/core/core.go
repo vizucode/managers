@@ -4,13 +4,12 @@ import "time"
 
 type Core struct {
 	Id          uint
-	Email       string
 	Name        string
-	PhoneNumber string
-	Address     string
+	Email       string
 	Password    string
-	IsActive    bool
+	PhoneNumber string
+	Role        string
+	Token       string
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
-	DeletedAt   time.Time
 }

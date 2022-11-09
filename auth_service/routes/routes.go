@@ -4,9 +4,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
 
-	userhandler "authentication/domains/user/handler"
-	userrepo "authentication/domains/user/repository"
-	userservice "authentication/domains/user/service"
+	authhandler "authentication/domains/auth/handler"
+	authrepo "authentication/domains/auth/repository"
+	authservice "authentication/domains/auth/service"
 )
 
 func InitRoutes(ctx *fiber.App, db *gorm.DB) {
@@ -14,14 +14,13 @@ func InitRoutes(ctx *fiber.App, db *gorm.DB) {
 		Dependency Injection
 	*/
 
-	userRepo := userrepo.New(db)
-	userService := userservice.New(userRepo)
-	userHandler := userhandler.New(userService)
+	authRepo := authrepo.New(db)
+	authService := authservice.New(authRepo)
+	authHandler := authhandler.New(authService)
 
 	/*
 		Routes
 	*/
 
-	ctx.Post("/register", userHandler.Create)
-	ctx.Put("/verify", userHandler.Verify)
+	ctx.Post("/login", authHandler.Login)
 }

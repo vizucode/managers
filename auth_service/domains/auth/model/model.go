@@ -1,30 +1,27 @@
 package usermodel
 
 import (
-	usercore "authentication/domains/user/core"
+	usercore "authentication/domains/auth/core"
 
 	"gorm.io/gorm"
 )
 
 type User struct {
 	gorm.Model
-	Email       string
 	Name        string
-	PhoneNumber string
-	Address     string
+	Email       string
 	Password    string
-	IsActive    bool
+	PhoneNumber string
+	Role        string
 }
 
 func ToCore(model User) usercore.Core {
 	return usercore.Core{
-		Id:          model.ID,
 		Email:       model.Email,
 		Name:        model.Name,
 		PhoneNumber: model.PhoneNumber,
-		Address:     model.Address,
+		Role:        model.Role,
 		Password:    model.Password,
-		IsActive:    model.IsActive,
 	}
 }
 
@@ -33,7 +30,7 @@ func ToModel(Core usercore.Core) User {
 		Email:       Core.Email,
 		Name:        Core.Name,
 		PhoneNumber: Core.PhoneNumber,
-		Address:     Core.Address,
+		Role:        Core.Role,
 		Password:    Core.Password,
 	}
 }

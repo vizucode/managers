@@ -2,7 +2,7 @@ package database
 
 import (
 	"authentication/config"
-	usermodel "authentication/domains/user/model"
+	usermodel "authentication/domains/auth/model"
 	"fmt"
 	"log"
 

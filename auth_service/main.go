@@ -23,7 +23,7 @@ func main() {
 
 	routes.InitRoutes(app, db)
 
-	if err := app.Listen(":80"); err != nil {
+	if err := app.Listen(":"+cfg.SERVER_PORT); err != nil {
 		panic(err)
 	}
 }
