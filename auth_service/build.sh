@@ -1,0 +1,1 @@
+docker build -t hirasakavizu/authservice:latest .
