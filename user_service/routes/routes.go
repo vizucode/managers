@@ -7,6 +7,7 @@ import (
 	userhandler "managerservice/domains/user/handler"
 	userrepo "managerservice/domains/user/repository"
 	userservice "managerservice/domains/user/service"
+	"managerservice/middlewares"
 )
 
 func InitRoutes(ctx *fiber.App, db *gorm.DB) {

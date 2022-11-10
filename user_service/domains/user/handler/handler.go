@@ -3,6 +3,7 @@ package userhandler
 import (
 	usercore "managerservice/domains/user/core"
 	"managerservice/exceptions"
+	"managerservice/middlewares"
 	"managerservice/utils/helpers"
 	"net/http"
 	"strconv"
@@ -92,11 +93,7 @@ func (h *activityHandler) Delete(c *fiber.Ctx) error {
 }
 
 func (h *activityHandler) Get(c *fiber.Ctx) error {
-	paramID := c.Params("id")
-	id, err := strconv.Atoi(paramID)
-	if err != nil {
-		panic(exceptions.NewBadRequestError("param not an number"))
-	}
+	id, _ := middlewares.ExtractToken(c)
 
 	result := h.service.Get(usercore.Core{
 		Id: uint(id),
