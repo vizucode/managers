@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+spec:
+  selector:
+    matchLabels:
+      name: auth-pods
+  template:
+    metadata:
+      labels:
+        name: auth-pods
+    spec:
+      containers:
+        - name: auth-container
+          image: hirasakavizu/authservice
+          env:
+            - name: DB_USER
+              value: vizu
+            - name: DB_HOST
+              value: "10.100.66.230"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_DBNAME
+              value: db_managers
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: psql-credential
+                  key: psql-password
+            - name: JWT_SECRET
+              value: secret
+            - name: SERVER_PORT
+              value: "8080"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-service
+spec:
+  type: ClusterIP
+  selector: 
+    name: auth-pods
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: psql-credential
+type: Opaque
+data:
+  psql-password: dml6dWNvZGU=
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jwt-credential
+type: Opaque
+data:
+  jwt-secret: c2VjcmV0cG9s
