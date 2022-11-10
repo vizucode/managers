@@ -156,8 +156,9 @@ Please enable Ingress during apply the k8s configuration
 Please check DB_HOST in ``authentication-service.yaml`` and ``user-service.yaml`` use local ip instead of FQDN after apply k8s configuration
 After running, in terminal type ``minikube ip`` then point to:
 
-unix: (/etc/hosts)
-managers.com : the ip
+unix: 
+- /etc/hosts
+  managers.com : the ip
 
 ### Usage:
 
