@@ -1,7 +1,6 @@
 package activityservice
 
 import (
-	"fmt"
 	usercore "managerservice/domains/user/core"
 	"managerservice/exceptions"
 
@@ -18,19 +17,49 @@ func New(repo usercore.IRepoUser) *userService {
 	}
 }
 
-func (s *userService) Create(activityCore usercore.Core) usercore.Core {
-	result, err := s.repo.Insert(activityCore)
+func (s *userService) Create(activityCore usercore.Core) {
+	err := s.repo.Insert(activityCore)
 
 	if err != nil {
 		panic(exceptions.NewInternalServerError(err.Error()))
+	}
+}
+
+func (s *userService) Update(activityCore usercore.Core) {
+	err := s.repo.Update(activityCore)
+
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			panic(exceptions.NewNotFoundError(err.Error()))
+		}
+		panic(exceptions.NewInternalServerError(err.Error()))
+	}
+}
+
+func (s *userService) Delete(activityCore usercore.Core) {
+	err := s.repo.Delete(activityCore)
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			panic(exceptions.NewNotFoundError(err.Error()))
+		}
+		panic(exceptions.NewInternalServerError(err.Error()))
+	}
+}
+
+func (s *userService) GetAll() []usercore.Core {
+	result, err := s.repo.FindAll()
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			panic(exceptions.NewNotFoundError(err.Error()))
+		}
+		panic(exceptions.NewBadRequestError(err.Error()))
 	}
 
 	return result
 }
 
-func (s *userService) Verify(activityCore usercore.Core) usercore.Core {
-
-	isExist, err := s.repo.GetByEmail(activityCore)
+func (s *userService) Get(activityCore usercore.Core) usercore.Core {
+	result, err := s.repo.First(activityCore)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			panic(exceptions.NewNotFoundError(err.Error()))
@@ -38,20 +67,5 @@ func (s *userService) Verify(activityCore usercore.Core) usercore.Core {
 		panic(exceptions.NewInternalServerError(err.Error()))
 	}
 
-	if isExist {
-		activityCore.IsActive = true
-		result, err := s.repo.Update(activityCore)
-		if err != nil {
-			if err == gorm.ErrRecordNotFound {
-				msg := fmt.Sprintf("Activity with Email %s Not Found", activityCore.Email)
-				panic(exceptions.NewNotFoundError(msg))
-			} else {
-				panic(exceptions.NewInternalServerError(err.Error()))
-			}
-		}
-
-		return result
-	}
-
-	return usercore.Core{}
+	return result
 }
