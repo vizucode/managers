@@ -159,12 +159,6 @@ After running, in terminal type ``minikube ip`` then point to:
 unix: 
 - /etc/hosts -> managers.com : ``minikube ip``
 
-### Usage:
-
-Command to run environment :
-```bash
-./run.sh
-```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
