@@ -147,10 +147,17 @@ password: userpassword
 ### Required Stuff:
 
 - golang >= 1.19 -> [golang](https://go.dev/)
+- kubernetes latest
+- minikube
 
 ### Required Step:
 
-Copy `.env-example` and rename to `.env` and fill with your own environment
+Please enable Ingress during apply the k8s configuration
+Please check DB_HOST in ``authentication-service.yaml`` and ``user-service.yaml`` use local ip instead of FQDN after apply k8s configuration
+After running, in terminal type ``minikube ip`` then point to:
+
+unix: (/etc/hosts)
+managers.com : the ip
 
 ### Usage:
 
