@@ -22,7 +22,14 @@ func InitRoutes(ctx *fiber.App, db *gorm.DB) {
 	/*
 		Routes
 	*/
+	ctx.Use(middlewares.JWTMiddleware)
 
-	ctx.Post("/register", userHandler.Create)
-	ctx.Put("/verify", userHandler.Verify)
+	ctx.Get("/user", userHandler.Get)
+
+	ctx.Use(middlewares.IsAdmin)
+
+	ctx.Post("/users", userHandler.Create)
+	ctx.Put("/user/:id", userHandler.Update)
+	ctx.Delete("/user/:id", userHandler.Delete)
+	ctx.Get("/users", userHandler.GetAll)
 }

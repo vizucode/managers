@@ -13,6 +13,7 @@ type User struct {
 	Name        string
 	PhoneNumber string
 	Gender      string
+	Role        string
 }
 
 func ToCore(model User) usercore.Core {
@@ -23,6 +24,7 @@ func ToCore(model User) usercore.Core {
 		PhoneNumber: model.PhoneNumber,
 		Password:    model.Password,
 		Gender:      model.Gender,
+		Role:        "member",
 	}
 }
 
@@ -33,5 +35,6 @@ func ToModel(Core usercore.Core) User {
 		PhoneNumber: Core.PhoneNumber,
 		Password:    Core.Password,
 		Gender:      Core.Gender,
+		Role:        Core.Role,
 	}
 }

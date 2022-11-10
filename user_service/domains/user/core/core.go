@@ -9,6 +9,7 @@ type Core struct {
 	Name        string
 	PhoneNumber string
 	Gender      string
+	Role        string
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 	DeletedAt   time.Time

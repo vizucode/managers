@@ -15,6 +15,7 @@ type AppConfig struct {
 	DB_DBNAME   string
 	DB_PASSWORD string
 	JWT_SECRET  string
+	SERVER_PORT string
 }
 
 func GetConfig() *AppConfig {
@@ -32,5 +33,6 @@ func GetConfig() *AppConfig {
 		DB_USER:     os.Getenv("DB_USER"),
 		DB_PASSWORD: os.Getenv("DB_PASSWORD"),
 		JWT_SECRET:  os.Getenv("JWT_SECRET"),
+		SERVER_PORT: os.Getenv("SERVER_PORT"),
 	}
 }

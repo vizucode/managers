@@ -2,7 +2,7 @@ package userhandler
 
 type Request struct {
 	Email       string `json:"email" form:"email" validate:"required"`
-	Name        string `json:"name" form:"name" validate:"required"`
+	Name        string `json:"username" form:"username" validate:"required"`
 	PhoneNumber string `json:"phone_number" form:"phone_number" validate:"required"`
 	Gender      string `json:"gender" form:"gender" validate:"required"`
 	Password    string `json:"password" form:"password" validate:"required"`
@@ -10,7 +10,7 @@ type Request struct {
 
 type RequestUpdate struct {
 	Email       string `json:"email" form:"email"`
-	Name        string `json:"name" form:"name"`
+	Name        string `json:"username" form:"username"`
 	PhoneNumber string `json:"phone_number" form:"phone_number"`
 	Gender      string `json:"gender" form:"gender"`
 }

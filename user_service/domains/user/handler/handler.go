@@ -105,6 +105,7 @@ func (h *activityHandler) Get(c *fiber.Ctx) error {
 		Email:       result.Email,
 		Gender:      result.Gender,
 		PhoneNumber: result.PhoneNumber,
+		Role:        result.Role,
 	}))
 }
 
@@ -120,6 +121,7 @@ func (h *activityHandler) GetAll(c *fiber.Ctx) error {
 			Email:       result.Email,
 			Gender:      result.Gender,
 			PhoneNumber: result.PhoneNumber,
+			Role:        result.Role,
 		})
 	}
 

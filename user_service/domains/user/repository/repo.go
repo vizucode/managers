@@ -19,6 +19,7 @@ func New(db *gorm.DB) *userRepo {
 
 func (r *userRepo) Insert(userCore usercore.Core) error {
 	model := usermodel.ToModel(userCore)
+	model.Role = "member"
 	tx := r.db.Create(&model)
 
 	if tx.Error != nil {
