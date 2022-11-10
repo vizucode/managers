@@ -38,7 +38,6 @@ func (h *activityHandler) Create(c *fiber.Ctx) error {
 	result := h.service.Create(usercore.Core{
 		Email:       request.Email,
 		PhoneNumber: request.PhoneNumber,
-		Address:     request.Address,
 		Name:        request.Name,
 		Password:    request.Password,
 	})
@@ -48,7 +47,6 @@ func (h *activityHandler) Create(c *fiber.Ctx) error {
 		Email:       result.Email,
 		Name:        result.Name,
 		PhoneNumber: result.PhoneNumber,
-		Address:     result.Address,
 		Password:    result.Password,
 	}))
 }

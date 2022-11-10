@@ -22,9 +22,7 @@ func ToCore(model User) usercore.Core {
 		Email:       model.Email,
 		Name:        model.Name,
 		PhoneNumber: model.PhoneNumber,
-		Address:     model.Address,
 		Password:    model.Password,
-		IsActive:    model.IsActive,
 	}
 }
 
@@ -33,7 +31,6 @@ func ToModel(Core usercore.Core) User {
 		Email:       Core.Email,
 		Name:        Core.Name,
 		PhoneNumber: Core.PhoneNumber,
-		Address:     Core.Address,
 		Password:    Core.Password,
 	}
 }

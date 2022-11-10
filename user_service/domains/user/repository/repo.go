@@ -19,7 +19,6 @@ func New(db *gorm.DB) *userRepo {
 
 func (r *userRepo) Insert(userCore usercore.Core) (usercore.Core, error) {
 	model := usermodel.ToModel(userCore)
-	userCore.IsActive = false
 	tx := r.db.Create(&model)
 
 	if tx.Error != nil {
@@ -31,8 +30,7 @@ func (r *userRepo) Insert(userCore usercore.Core) (usercore.Core, error) {
 
 func (r *userRepo) Update(userCore usercore.Core) (usercore.Core, error) {
 	model := usermodel.ToModel(userCore)
-	model.IsActive = userCore.IsActive
-	tx := r.db.Model(usermodel.User{}).Where("email", userCore.Email).Select("is_active").Updates(&model)
+	tx := r.db.Model(usermodel.User{}).Where("id", userCore.Id).Updates(&model)
 	if tx.Error != nil {
 		return usercore.Core{}, tx.Error
 	}
@@ -51,7 +49,7 @@ func (r *userRepo) Update(userCore usercore.Core) (usercore.Core, error) {
 
 func (r *userRepo) GetByEmail(userCore usercore.Core) (bool, error) {
 	model := usermodel.ToModel(userCore)
-	tx := r.db.Model(usermodel.User{}).Where("email", userCore.Email).Where("password", userCore.Password).First(&model)
+	tx := r.db.Model(usermodel.User{}).Where("email", userCore.Email).First(&model)
 	if tx.Error != nil {
 		return false, tx.Error
 	}
