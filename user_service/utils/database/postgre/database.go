@@ -26,6 +26,7 @@ func InitDB(cfg *config.AppConfig) *gorm.DB {
 		log.Fatal(err)
 	}
 	autoMigrate(db)
+	seeder(db)
 	return db
 }
 
