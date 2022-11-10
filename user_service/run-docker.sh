@@ -1,0 +1,2 @@
+docker rm -f userservice
+docker run --name userservice -e DB_HOST=postgresql -e DB_USER=vizu -e DB_PASSWORD=vizu -e DB_DBNAME=db_managers -e DB_PORT=5432 -e JWT_SECRET=secret -e SERVER_PORT=8083 --network=my-bridge-network -d -p 8083:8083 hirasakavizu/userservice
