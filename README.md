@@ -96,7 +96,7 @@ This the tech stack that we used for developing Postgre service
 
 ### API Documentation
 
-This is API Documentation [API Documentation](https://documenter.getpostman.com/view/11975231/2s8YYPHL5c)
+This is API Documentation [API Documentation](https://documenter.getpostman.com/view/11975231/2s8YekSvNC)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
