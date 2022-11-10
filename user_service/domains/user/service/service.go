@@ -4,6 +4,7 @@ import (
 	usercore "managerservice/domains/user/core"
 	"managerservice/exceptions"
 
+	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
 
@@ -18,7 +19,16 @@ func New(repo usercore.IRepoUser) *userService {
 }
 
 func (s *userService) Create(activityCore usercore.Core) {
-	err := s.repo.Insert(activityCore)
+	password := activityCore.Password
+
+	hashPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	if err != nil {
+		panic(exceptions.NewInternalServerError(err.Error()))
+	}
+
+	activityCore.Password = string([]byte(hashPassword))
+
+	err = s.repo.Insert(activityCore)
 
 	if err != nil {
 		panic(exceptions.NewInternalServerError(err.Error()))
