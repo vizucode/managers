@@ -157,8 +157,7 @@ Please check DB_HOST in ``authentication-service.yaml`` and ``user-service.yaml`
 After running, in terminal type ``minikube ip`` then point to:
 
 unix: 
-- /etc/hosts
-  managers.com : the ip
+- /etc/hosts -> managers.com : ``minikube ip``
 
 ### Usage:
 
