@@ -9,11 +9,10 @@ import (
 type User struct {
 	gorm.Model
 	Email       string
+	Password    string
 	Name        string
 	PhoneNumber string
-	Address     string
-	Password    string
-	IsActive    bool
+	Gender      string
 }
 
 func ToCore(model User) usercore.Core {
@@ -23,6 +22,7 @@ func ToCore(model User) usercore.Core {
 		Name:        model.Name,
 		PhoneNumber: model.PhoneNumber,
 		Password:    model.Password,
+		Gender:      model.Gender,
 	}
 }
 
@@ -32,5 +32,6 @@ func ToModel(Core usercore.Core) User {
 		Name:        Core.Name,
 		PhoneNumber: Core.PhoneNumber,
 		Password:    Core.Password,
+		Gender:      Core.Gender,
 	}
 }
