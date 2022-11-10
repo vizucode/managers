@@ -1,1 +1,2 @@
+database psqldocker rm -f authservice
 docker run --name authservice -e DB_HOST=postgresql -e DB_USER=vizu -e DB_PASSWORD=vizu -e DB_DBNAME=db_managers -e DB_PORT=5432 -e JWT_SECRET=secret -e SERVER_PORT=8080 --network=my-bridge-network -d -p 8080:8080 hirasakavizu/authservice
